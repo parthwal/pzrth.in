@@ -150,10 +150,10 @@ function App() {
         <footer>
           <div className="left">
             <div className="socials">
-              <img className='socialItem' src={ig} alt='ig'/>
-              <img className='socialItem' src={be} alt='be'/>
-              <img className='socialItem' src={dscrd} alt='discord'/>
-              <img className='socialItem' src={at} alt='email'/>
+              <img className='socialItem' id="ig" src={ig} alt='ig'/>
+              <img className='socialItem' id="be" src={be} alt='be'/>
+              <img className='socialItem' id="discord" src={dscrd} alt='discord'/>
+              <img className='socialItem' id="at" src={at} alt='email'/>
             </div>
             <div className="contact">
               <span id="emailMe">talk to me</span>
