@@ -31,18 +31,18 @@ nav{
   /* background-color: rgba(0, 0, 0, 0.8); */
   color: #0c0c0c;
 }
-.barOne{
-  position: relative;
+.barOne {
+  position: absolute;
+  top: 0%;
   width: inherit;
-  left:50%;
+  height:auto;
+  left: 50%;
   transform: translateX(-50%);
-  max-width:1800px;
-
+  max-width: 1400px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-
 }
 
 .name{
@@ -100,6 +100,7 @@ h1{
 }
 
 .subNav {
+  z-index: 10000000;
   position: absolute;
   top: 100%;
   left: 50%;
@@ -144,9 +145,10 @@ h1{
   -ms-overflow-style: none;
 }
 
+
 .projectBox{
   width:20vw;
-  min-width: 200px;
+  min-width: 400px;
   aspect-ratio: 16/9;
   background: linear-gradient(213.67deg, #FF0000 -11%, rgba(217, 217, 217, 0) 62.66%);
   border-color: #FF0000;
@@ -154,26 +156,35 @@ h1{
   border-radius: 10px;
   border: 1px solid rgba(255, 0, 0, 1);
 }
-
 @media (max-width: 768px) {
-
+  
   .barOne {
+    padding-top: 30px;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     overflow: hidden;
+    height: 100svh;
+    overflow-y: scroll;
+
   }
-  
+
   .name {
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
+
   .subNav {
-    /* ... other styles */
-    overflow-x: hidden; /* Remove the 'overflow-x' property */
+    overflow-x: hidden;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-height: max-content; /* Adjust the max-height as per your needs */
   }
-  
+
   #parth {
     text-align: center;
     opacity: 0;
@@ -181,14 +192,26 @@ h1{
 
   .logo {
     margin-bottom: 10px;
+    padding-top: 10px;
   }
 
   #nav {
-    position:absolute;
+    position: absolute;
     padding-inline-start: 0;
   }
 
-  #projects {
+  .cta {
+    background-color: #fff;
+    font-family: 'FuturaBold';
+    font-size: 14px;
+    color: #ff0000;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-25px);
+    gap: 5px;
   }
-
 }

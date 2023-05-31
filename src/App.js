@@ -1,5 +1,6 @@
 import './App.css';
-import outArrow from './assets/SVG/arrow_thickOut.svg';
+import outArrow from './assets/SVG/arrow_out.svg';
+import outArrowRed from './assets/SVG/arrow_out_red.svg';
 import downArrow from './assets/SVG/arrow_down.svg';
 import React, { useState } from 'react';
 
@@ -11,6 +12,7 @@ function App() {
     setSubNavVisible(!subNavVisible);
     setArrowRotation(!arrowRotation);
   };
+  const arrowImage = window.innerWidth <= 768 ? outArrowRed : outArrow;
 
   const handleButtonClick = () => {
     toggleSubNav();
@@ -39,6 +41,11 @@ function App() {
                 <li><div className='projectBox'></div></li>
                 <li><div className='projectBox'></div></li>
                 <li><div className='projectBox'></div></li>
+                <li><div className='projectBox'></div></li>
+                <li><div className='projectBox'></div></li>
+                <li><div className='projectBox'></div></li>
+                <li><div className='projectBox'></div></li>
+                <li><div className='projectBox'></div></li>
                 <div className='spacer'></div>
 
               </ul>
@@ -48,7 +55,11 @@ function App() {
         </div>
 
         <div className="cta">
-          <button className="cta">Contact Me<img src={outArrow} alt='arrow' /></button>
+          <button className="cta">Contact Me<img
+  src={arrowImage}
+  alt='downArrow'
+  className={arrowRotation ? 'rotate' : ''}
+/></button>
         </div>
     </div>
       </nav >
