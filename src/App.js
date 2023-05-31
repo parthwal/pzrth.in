@@ -150,10 +150,10 @@ function App() {
         <footer>
           <div className="left">
             <div className="socials">
-              <img className='socialItem' src={ig} />
-              <img className='socialItem' src={be} />
-              <img className='socialItem' src={dscrd} />
-              <img className='socialItem' src={at} />
+              <img className='socialItem' src={ig} alt='ig'/>
+              <img className='socialItem' src={be} alt='be'/>
+              <img className='socialItem' src={dscrd} alt='discord'/>
+              <img className='socialItem' src={at} alt='email'/>
             </div>
             <div className="contact">
               <span id="emailMe">talk to me</span>
@@ -162,11 +162,11 @@ function App() {
           </div>
           <div className="right">
             <div className="nowPlaying">
-              <img className='socialItem' src={spotify} />
+              <img className='socialItem' src={spotify} alt='spotifyIcon'/>
               <span>Now Playing</span>
             </div>
             <div className="spotifyImport">
-              <span class='spotifyData' id='songArtist'>Artist <img src={outArrowRed} /></span>
+              <span class='spotifyData' id='songArtist'>Artist <img src={outArrowRed} alt='alt-red-arrow'/></span>
               <span class='spotifyData' id='songName'>Name</span>
             </div>
           </div>
