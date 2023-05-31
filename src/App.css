@@ -183,6 +183,9 @@ h1{
     align-items: center;
     justify-content: flex-start;
     max-height: max-content; /* Adjust the max-height as per your needs */
+    overflow-y: auto;
+    max-height: calc(100vh - 100px); /* Adjust the height as per your needs */
+
   }
 
   #parth {
