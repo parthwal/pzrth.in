@@ -74,7 +74,7 @@ nav{
   color: #ffffff;
   border: 0;
   border-radius: 5px;
-  padding: 5px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -180,10 +180,68 @@ h1{
 .contentBoxes{
   margin-top: 5px;
 }
+#main{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.contentsInside{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.badges{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+.badge{
+  width:30px;
+}
+#undertale{
+  width: 20px;
+}
+#nav li span {
+  position: relative;
+  display: inline-block;
+}
+
+#nav li span::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff0000; /* Set your desired underline color */
+  transition: width 0.3s ease; /* Add smooth transition effect */
+}
+
+#nav li:hover span::after {
+  width: 100%; /* Expand the width to reveal the underline */
+}
+
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 
 @media (max-width: 768px) {
   nav{
     position: absolute;
+  }
+  #nav li:hover span::after {
+    width: 0%; /* Expand the width to reveal the underline */
   }
   .barOne {
     padding-top: 30px;
@@ -257,5 +315,12 @@ h1{
   .contentBoxes{
     margin-top: 180px;
     margin-bottom: 100px;
+  }
+  .badge{
+    width:20px;
+  }
+  
+#undertale{
+    width: 15px;
   }
 }
