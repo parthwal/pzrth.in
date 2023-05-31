@@ -14,6 +14,9 @@
   src: url('assets/futura\ light\ bt.ttf') format('truetype');
   /* Add additional src lines for different font formats if available */
 }
+body {
+  margin: 0;
+}
 
 html{
   font-family:'FuturaBold', sans-serif;
@@ -92,7 +95,10 @@ nav{
 h1{
   font-size: 16px;
 }
+.mouseHover{
+  cursor: pointer;
 
+}
 #nav{
   font-size: 16px;
   list-style: none;
@@ -208,6 +214,7 @@ h1{
 #nav li span {
   position: relative;
   display: inline-block;
+  
 }
 
 #nav li span::after {
@@ -235,7 +242,76 @@ h1{
   }
 }
 
+footer{
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 100vw;
 
+}
+.socials{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  max-width: 100vw;
+  margin-top: 20px;
+}
+.socialItem{
+  width:20px;
+}
+.nowPlaying{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.right{
+  gap: 8px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+.left{
+  gap: 10px;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.contact{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+}
+.spotifyImport{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 5px;
+}
+#songArtist{
+  
+}
+#songName{
+  color: #FF0000;
+}
+#email{ 
+  color: #FF0000;
+}
 @media (max-width: 768px) {
   nav{
     position: absolute;
