@@ -162,7 +162,7 @@ function App() {
           </div>
           <div className="right">
             <div className="nowPlaying">
-              <img className='socialItem' src={spotify} alt='spotifyIcon'/>
+              <img className='socialItem' id="spotify" src={spotify} alt='spotifyIcon'/>
               <span>Now Playing</span>
             </div>
             <div className="spotifyImport">
