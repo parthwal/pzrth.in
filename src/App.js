@@ -198,7 +198,7 @@ const handleSubNavClick = (event) => {
           </div>
           <div className="contact">
             <span id="emailMe">talk to me</span>
-            <span id="email">him@pzrth.in</span>
+            <span id="email" style={{cursor: 'alias'}}>him@pzrth.in</span>
           </div>
         </div>
         <div className="right">

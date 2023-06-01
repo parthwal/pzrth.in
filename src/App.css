@@ -327,7 +327,7 @@ footer{
   gap: 5px;
 }
 #songArtist{
-  
+  cursor: alias;
 }
 #songName{
   color: #FF0000;
