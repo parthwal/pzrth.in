@@ -100,15 +100,15 @@ const handleSubNavClick = (event) => {
               barthwal
             </h1>
             <ul id="nav">
-              <li className="mouseHover">
-                <span><a>home</a></span>
+              <li className="">
+                <span className="mouseHover"><a>home</a></span>
               </li>
               <li
-                className="mouseHover"
+                className=""
                 id="projects"
                 onClick={handleButtonClick}
               >
-                <span><a>projects</a></span>
+                <span className="mouseHover"><a>projects</a></span>
                 <img
                   src={downArrow}
                   alt="downArrow"
@@ -121,43 +121,43 @@ const handleSubNavClick = (event) => {
                 >
                   <div className="spacer"></div>
                   <li>
-                    <div className="projectBox comingSoon"><span className='comingSoonText'>Coming Soon</span></div>
+                    <div className="projectBox comingSoon hoverInteract"><span className='comingSoonText'>Coming Soon</span></div>
                   </li>
                   <li>
-                    <div className="projectBox comingSoon"><span className='comingSoonText'>Coming Soon</span></div>
+                    <div className="projectBox comingSoon hoverInteract"><span className='comingSoonText'>Coming Soon</span></div>
                   </li>
                   <li>
-                    <div className="projectBox comingSoon"><span className='comingSoonText'>Coming Soon</span></div>
+                    <div className="projectBox comingSoon hoverInteract"><span className='comingSoonText'>Coming Soon</span></div>
                   </li>
                   <li>
-                    <div className="projectBox comingSoon"><span className='comingSoonText'>Coming Soon</span></div>
+                    <div className="projectBox comingSoon hoverInteract"><span className='comingSoonText'>Coming Soon</span></div>
                   </li>
                   <li>
-                    <div className="projectBox comingSoon"><span className='comingSoonText'>Coming Soon</span></div>
+                    <div className="projectBox comingSoon hoverInteract"><span className='comingSoonText'>Coming Soon</span></div>
                   </li>
                   <li>
-                    <div className="projectBox comingSoon"><span className='comingSoonText'>Coming Soon</span></div>
+                    <div className="projectBox comingSoon hoverInteract"><span className='comingSoonText'>Coming Soon</span></div>
                   </li>
                   <li>
-                    <div className="projectBox comingSoon"><span className='comingSoonText'>Coming Soon</span></div>
+                    <div className="projectBox comingSoon hoverInteract"><span className='comingSoonText'>Coming Soon</span></div>
                   </li>
                   <li>
-                    <div className="projectBox comingSoon"><span className='comingSoonText'>Coming Soon</span></div>
+                    <div className="projectBox comingSoon hoverInteract"><span className='comingSoonText'>Coming Soon</span></div>
                   </li>
                   <li>
-                    <div className="projectBox comingSoon"><span className='comingSoonText'>Coming Soon</span></div>
+                    <div className="projectBox comingSoon hoverInteract"><span className='comingSoonText'>Coming Soon</span></div>
                   </li>
                   <li>
-                    <div className="projectBox comingSoon"><span className='comingSoonText'>Coming Soon</span></div>
+                    <div className="projectBox comingSoon hoverInteract"><span className='comingSoonText'>Coming Soon</span></div>
                   </li>
                   <li>
-                    <div className="projectBox comingSoon"><span className='comingSoonText'>Coming Soon</span></div>
+                    <div className="projectBox comingSoon hoverInteract"><span className='comingSoonText'>Coming Soon</span></div>
                   </li>
                   <div className="spacer"></div>
                 </ul>
               </li>
-              <li className="mouseHover">
-                <span><a>parth</a></span>
+              <li className="">
+                <span className="mouseHover"><a>parth</a></span>
               </li>
             </ul>
           </div>
@@ -191,10 +191,10 @@ const handleSubNavClick = (event) => {
       <footer>
         <div className="left">
           <div className="socials">
-            <img className='socialItem' id="ig" src={ig} alt='ig' />
-            <img className='socialItem' id="be" src={be} alt='be' />
-            <img className='socialItem' id="discord" src={dscrd} alt='discord' />
-            <img className='socialItem' id="at" src={at} alt='email' />
+            <img className='socialItem hoverInteract' id="ig" src={ig} alt='ig' />
+            <img className='socialItem hoverInteract' id="be" src={be} alt='be' />
+            <img className='socialItem hoverInteract' id="discord" src={dscrd} alt='discord' />
+            <img className='socialItem hoverInteract' id="at" src={at} alt='email' />
           </div>
           <div className="contact">
             <span id="emailMe">talk to me</span>
@@ -203,7 +203,7 @@ const handleSubNavClick = (event) => {
         </div>
         <div className="right">
           <div className="nowPlaying">
-            <img className='socialItem' id="spotify" src={spotify} alt='spotifyIcon' />
+            <img className='socialItem hoverInteract' id="spotify" src={spotify} alt='spotifyIcon' />
             <span>Now Playing</span>
           </div>
           <div className="spotifyImport">
