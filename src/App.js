@@ -101,14 +101,14 @@ const handleSubNavClick = (event) => {
             </h1>
             <ul id="nav">
               <li className="">
-                <span className="mouseHover"><a href="pzrth.in">home</a></span>
+                <span className="mouseHover"><a>home</a></span>
               </li>
               <li
                 className=""
                 id="projects"
                 onClick={handleButtonClick}
               >
-                <span className="mouseHover"><a href="pzrth.in">projects</a></span>
+                <span className="mouseHover"><a>projects</a></span>
                 <img
                   src={downArrow}
                   alt="downArrow"
@@ -157,7 +157,7 @@ const handleSubNavClick = (event) => {
                 </ul>
               </li>
               <li className="">
-                <span className="mouseHover"><a href="pzrth.in">parth</a></span>
+                <span className="mouseHover"><a>parth</a></span>
               </li>
             </ul>
           </div>
