@@ -160,7 +160,7 @@ h1{
 
 .projectBox{
   width:20vw;
-  min-width: 400px;
+  min-width: 200px;
   aspect-ratio: 16/9;
   background: linear-gradient(213.67deg, rgba(255,0,0,0.8) -11%, rgba(217, 217, 217, 0) 62.66%);
   border-color: #FF0000;
@@ -411,7 +411,7 @@ footer{
 
   .content{
     margin-top: 20px;
-    width: 80vw;
+    width: 60vw;
     min-width: none;
     aspect-ratio: 16/9;
   }
@@ -425,5 +425,8 @@ footer{
   
 #undertale{
     width: 15px;
+  }
+  .projectBox{
+    width: 70vw;
   }
 }
