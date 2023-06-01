@@ -209,13 +209,13 @@ h1{
 #undertale{
   width: 20px;
 }
-#nav li span {
+#nav span a {
   position: relative;
   display: inline-block;
   
 }
 
-#nav li span::after {
+#nav span a::after {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -226,7 +226,7 @@ h1{
   transition: width 0.3s ease; /* Add smooth transition effect */
 }
 
-#nav li:hover span::after {
+#nav span:hover a::after {
   width: 100%; /* Expand the width to reveal the underline */
 }
 
@@ -343,7 +343,7 @@ footer{
   nav{
     position: absolute;
   }
-  #nav li:hover span::after {
+  #nav span:hover a::after {
     width: 0%; /* Expand the width to reveal the underline */
   }
   .barOne {

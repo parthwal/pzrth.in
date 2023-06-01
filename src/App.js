@@ -17,9 +17,9 @@ function App() {
   const [subNavVisible, setSubNavVisible] = useState(false);
   const [arrowRotation, setArrowRotation] = useState(false);
   const subNavRef = useRef(null);
-  const handleSubNavClick = (event) => {
-    event.stopPropagation(); // Stop propagation of the click event
-  };
+const handleSubNavClick = (event) => {
+  event.stopPropagation(); // Stop propagation of the click event
+};
   useEffect(() => {
     const subNavContainer = subNavRef.current;
 
@@ -101,14 +101,14 @@ function App() {
             </h1>
             <ul id="nav">
               <li className="mouseHover">
-                <span>home</span>
+                <span><a>home</a></span>
               </li>
               <li
                 className="mouseHover"
                 id="projects"
                 onClick={handleButtonClick}
               >
-                <span>projects</span>
+                <span><a>projects</a></span>
                 <img
                   src={downArrow}
                   alt="downArrow"
@@ -157,7 +157,7 @@ function App() {
                 </ul>
               </li>
               <li className="mouseHover">
-                <span>parth</span>
+                <span><a>parth</a></span>
               </li>
             </ul>
           </div>
