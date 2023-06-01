@@ -17,9 +17,9 @@ function App() {
   const [subNavVisible, setSubNavVisible] = useState(false);
   const [arrowRotation, setArrowRotation] = useState(false);
   const subNavRef = useRef(null);
-const handleSubNavClick = (event) => {
-  event.stopPropagation(); // Stop propagation of the click event
-};
+  const handleSubNavClick = (event) => {
+    event.stopPropagation(); // Stop propagation of the click event
+  };
   useEffect(() => {
     const subNavContainer = subNavRef.current;
 
