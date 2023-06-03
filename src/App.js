@@ -112,6 +112,7 @@ const handleSubNavClick = (event) => {
                 <img
                   src={downArrow}
                   alt="downArrow"
+                  id='downArrow'
                   className={arrowRotation ? 'rotate' : ''}
                 />
                 <ul
