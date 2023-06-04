@@ -10,10 +10,31 @@ import be from './assets/figma/be.png';
 import dscrd from './assets/figma/dscrd.png';
 import at from './assets/figma/at.png';
 import spotify from './assets/figma/spotify.png';
+import { SpotifyService } from 'spotify-now-playing';
 
 import React, { useState, useEffect, useRef } from 'react';
 
 function App() {
+  const spotify = new SpotifyService(
+    '8d4596193dd143cfa13dcb8b524628b8',
+    '55b0e491f4dd40b39b334f6e2fdf79fc',
+    'AQD0w4vhVruPyuQkA9ON80mxhasKEYSbwRJ12ioqspctEIsVQpVMJZdU4BOXq5hA4D0sS2mfJHlbraRF2TBXcK8VqYjdobY1u_KitVHzw7sVYesEFVBT-H_zrUOj0nnpSac'
+  );
+  
+  const fetchCurrentSong = async () => {
+    const song = await spotify.getCurrentSong();
+    if (!song.isPlaying) {
+      console.log('Not listening to anything');
+    } else {
+      console.log(`Listening to **${song.title}** by ${song.artist.name}`);
+    }
+  };
+  
+  useEffect(() => {
+    fetchCurrentSong();
+  }, []);
+  
+  
   const [subNavVisible, setSubNavVisible] = useState(false);
   const [arrowRotation, setArrowRotation] = useState(false);
   const subNavRef = useRef(null);
