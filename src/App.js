@@ -21,10 +21,10 @@ function App() {
     try {
       const response = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', {
         headers: {
-          Authorization: `Bearer YOUR_ACCESS_TOKEN`,
+          Authorization: `Bearer BQCJ_LttMpwaAUHwERR1K0TKvsfekD8xvokYbscN6_hdyNt4k30ddsSc7GbBrB1iQDMAZu5CKykbqyppT9R87ZFnV_f815-i8Xh8iTogfELur0ocShFlXRgiHntJ0KZMNeeRNRuDb334fGuxPWpJILRgTeljm5qEuHttbGgWz5V0-SWrTKZIA7lM`,
         },
       });
-  
+
       if (response.status === 204) {
         setNowPlaying(null); // No track is currently playing
       } else {
@@ -34,11 +34,10 @@ function App() {
       console.error('Error fetching currently playing track:', error);
     }
   };
-  
   useEffect(() => {
     getNowPlaying();
   }, []);
-  
+
   const [subNavVisible, setSubNavVisible] = useState(false);
   const [arrowRotation, setArrowRotation] = useState(false);
   const subNavRef = useRef(null);
@@ -126,6 +125,8 @@ function App() {
     // Update the button text and image
     setButtonText('Copied to Clipboard');
     setButtonClicked(true);
+    // Open the mail client with the mailto link
+    window.location.href = mailtoLink;
   };
 
   const handleOutsideClick = (event) => {
@@ -137,6 +138,7 @@ function App() {
   };
 
   const arrowImage = window.innerWidth <= 768 ? outArrowRed : outArrow;
+  const clipboardImage = window.innerWidth <= 768 ? clipboardRed : clipboard;
 
   return (
     <div className="App">
@@ -216,11 +218,13 @@ function App() {
             <button className="cta mouseHover" onClick={handleCTAClick}>
               {buttonText}
               {buttonClicked ? (
-                <img src={clipboardRed} alt="clipboard" />
+                <img src={window.innerWidth <= 768 ? clipboardRed : clipboard} alt="clipboard" /> // Updated line
               ) : (
-                <img src={arrowImage} alt="clipboard" />
+                <img src={window.innerWidth <= 768 ? outArrowRed : outArrow} alt="arrow" />
               )}
             </button>
+
+
           </div>
         </div>
       </nav>
