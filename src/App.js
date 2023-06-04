@@ -12,6 +12,8 @@ import be from './assets/figma/be.png';
 import dscrd from './assets/figma/dscrd.png';
 import at from './assets/figma/at.png';
 import spotify from './assets/figma/spotify.png';
+import clipboard from './assets/SVG/clipboard.svg';
+import clipboardRed from './assets/SVG/clipboardRed.svg';
 
 function App() {
   const [nowPlaying, setNowPlaying] = useState(null);
@@ -22,7 +24,7 @@ function App() {
           Authorization: `Bearer BQCJ_LttMpwaAUHwERR1K0TKvsfekD8xvokYbscN6_hdyNt4k30ddsSc7GbBrB1iQDMAZu5CKykbqyppT9R87ZFnV_f815-i8Xh8iTogfELur0ocShFlXRgiHntJ0KZMNeeRNRuDb334fGuxPWpJILRgTeljm5qEuHttbGgWz5V0-SWrTKZIA7lM`,
         },
       });
-  
+
       if (response.status === 204) {
         setNowPlaying(null); // No track is currently playing
       } else {
@@ -35,13 +37,13 @@ function App() {
   useEffect(() => {
     getNowPlaying();
   }, []);
-  
+
   const [subNavVisible, setSubNavVisible] = useState(false);
   const [arrowRotation, setArrowRotation] = useState(false);
   const subNavRef = useRef(null);
-const handleSubNavClick = (event) => {
-  event.stopPropagation(); // Stop propagation of the click event
-};
+  const handleSubNavClick = (event) => {
+    event.stopPropagation(); // Stop propagation of the click event
+  };
   useEffect(() => {
     const subNavContainer = subNavRef.current;
 
@@ -98,6 +100,34 @@ const handleSubNavClick = (event) => {
   const handleButtonClick = (event) => {
     event.stopPropagation(); // Stop propagation of the click event
     toggleSubNav();
+  };
+
+  const [buttonText, setButtonText] = useState('Contact Me');
+  const [buttonClicked, setButtonClicked] = useState(false);
+
+  const handleCTAClick = () => {
+    const email = 'him@pzrth.in';
+    const subject = 'Regarding Projects';
+    const body = 'Hello,\n\nI would like to discuss some projects with you.\n\nBest regards,\n[Your Name]';
+
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Create a temporary input element
+    const tempInput = document.createElement('input');
+    tempInput.value = email;
+    document.body.appendChild(tempInput);
+
+    // Copy the email address to the clipboard
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+
+    // Update the button text and image
+    setButtonText('Copied to Clipboard');
+    setButtonClicked(true);
+
+    // Open the mail client with the mailto link
+    window.location.href = mailtoLink;
   };
 
   const handleOutsideClick = (event) => {
@@ -185,13 +215,13 @@ const handleSubNavClick = (event) => {
             </ul>
           </div>
           <div className="ctaC">
-            <button className="cta mouseHover">
-              Contact Me
-              <img
-                src={arrowImage}
-                alt="downArrow"
-                className={arrowRotation ? 'rotate' : ''}
-              />
+            <button className="cta mouseHover" onClick={handleCTAClick}>
+              {buttonText}
+              {window.innerWidth <= 768 && buttonClicked ? (
+                <img src={clipboardRed} alt="clipboard" />
+              ) : (
+                <img src={window.innerWidth <= 768 ? outArrowRed : outArrow} alt="clipboard" />
+              )}
             </button>
           </div>
         </div>
@@ -221,27 +251,27 @@ const handleSubNavClick = (event) => {
           </div>
           <div className="contact">
             <span id="emailMe">talk to me</span>
-            <span id="email" style={{cursor: 'alias'}}>him@pzrth.in</span>
+            <span id="email" style={{ cursor: 'alias' }}>him@pzrth.in</span>
           </div>
         </div>
         <div className="right">
-    <div className="nowPlaying">
-      <img className='socialItem hoverInteract' id="spotify" src={spotify} alt='spotifyIcon' />
-      <span>Now Playing</span>
-    </div>
-    {nowPlaying ? (
-      <div className="spotifyImport">
-        <span className='spotifyData' id='songArtist'>{nowPlaying.item.artists[0].name} <img src={outArrowRed} alt='alt-red-arrow' /></span>
-        <span className='spotifyData' id='songName'>{nowPlaying.item.name}</span>
-      </div>
-    ) : (
-      <div className="spotifyImport">
-        <span className='spotifyData' id='songArtist'>Artist <img src={outArrowRed} alt='alt-red-arrow' /></span>
-        <span className='spotifyData' id='songName'>Name</span>
-      </div>
-    )}
-  </div>
-</footer>
+          <div className="nowPlaying">
+            <img className='socialItem hoverInteract' id="spotify" src={spotify} alt='spotifyIcon' />
+            <span>Now Playing</span>
+          </div>
+          {nowPlaying ? (
+            <div className="spotifyImport">
+              <span className='spotifyData' id='songArtist'>{nowPlaying.item.artists[0].name} <a href='https://open.spotify.com/user/barthwal.parth' target='_blank'><img src={outArrowRed} alt='alt-red-arrow' /></a></span>
+              <span className='spotifyData' id='songName'>{nowPlaying.item.name}</span>
+            </div>
+          ) : (
+            <div className="spotifyImport">
+              <span className='spotifyData' id='songArtist'>Artist <a href='https://open.spotify.com/user/barthwal.parth' target='_blank'><img src={outArrowRed} alt='alt-red-arrow' /></a></span>
+              <span className='spotifyData' id='songName'>Name</span>
+            </div>
+          )}
+        </div>
+      </footer>
     </div>
   );
 }

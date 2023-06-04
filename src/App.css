@@ -511,6 +511,9 @@ a{
     flex-direction: column-reverse;
     gap: 10px;
   }
+  .right{
+    align-items: center;
+  }
   .spotifyImport{
     flex-direction: row;
     gap: 10px;
