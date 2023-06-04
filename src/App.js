@@ -1,4 +1,6 @@
 import './App.css';
+import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import outArrow from './assets/SVG/arrow_out.svg';
 import outArrowRed from './assets/SVG/arrow_out_red.svg';
 import downArrow from './assets/SVG/arrow_down.svg';
@@ -11,9 +13,29 @@ import dscrd from './assets/figma/dscrd.png';
 import at from './assets/figma/at.png';
 import spotify from './assets/figma/spotify.png';
 
-import React, { useState, useEffect, useRef } from 'react';
-
 function App() {
+  const [nowPlaying, setNowPlaying] = useState(null);
+  const getNowPlaying = async () => {
+    try {
+      const response = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', {
+        headers: {
+          Authorization: `Bearer BQCJ_LttMpwaAUHwERR1K0TKvsfekD8xvokYbscN6_hdyNt4k30ddsSc7GbBrB1iQDMAZu5CKykbqyppT9R87ZFnV_f815-i8Xh8iTogfELur0ocShFlXRgiHntJ0KZMNeeRNRuDb334fGuxPWpJILRgTeljm5qEuHttbGgWz5V0-SWrTKZIA7lM`,
+        },
+      });
+  
+      if (response.status === 204) {
+        setNowPlaying(null); // No track is currently playing
+      } else {
+        setNowPlaying(response.data); // Set the currently playing track
+      }
+    } catch (error) {
+      console.error('Error fetching currently playing track:', error);
+    }
+  };
+  useEffect(() => {
+    getNowPlaying();
+  }, []);
+  
   const [subNavVisible, setSubNavVisible] = useState(false);
   const [arrowRotation, setArrowRotation] = useState(false);
   const subNavRef = useRef(null);
@@ -203,16 +225,23 @@ const handleSubNavClick = (event) => {
           </div>
         </div>
         <div className="right">
-          <div className="nowPlaying">
-            <img className='socialItem hoverInteract' id="spotify" src={spotify} alt='spotifyIcon' />
-            <span>Now Playing</span>
-          </div>
-          <div className="spotifyImport">
-            <span className='spotifyData' id='songArtist'>Artist <img src={outArrowRed} alt='alt-red-arrow' /></span>
-            <span className='spotifyData' id='songName'>Name</span>
-          </div>
-        </div>
-      </footer>
+    <div className="nowPlaying">
+      <img className='socialItem hoverInteract' id="spotify" src={spotify} alt='spotifyIcon' />
+      <span>Now Playing</span>
+    </div>
+    {nowPlaying ? (
+      <div className="spotifyImport">
+        <span className='spotifyData' id='songArtist'>{nowPlaying.item.artists[0].name} <img src={outArrowRed} alt='alt-red-arrow' /></span>
+        <span className='spotifyData' id='songName'>{nowPlaying.item.name}</span>
+      </div>
+    ) : (
+      <div className="spotifyImport">
+        <span className='spotifyData' id='songArtist'>Artist <img src={outArrowRed} alt='alt-red-arrow' /></span>
+        <span className='spotifyData' id='songName'>Name</span>
+      </div>
+    )}
+  </div>
+</footer>
     </div>
   );
 }
